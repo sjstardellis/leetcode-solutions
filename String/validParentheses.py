@@ -1,27 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        # key-value pairs of our brackets, stack to keep track of open/closed brackets
+        mapping = {')': '(', '}': '{', ']': '['}
         stack = []
-        # our key-value pairs of every type of bracket
-        pairs = {
-            ')': '(',
-            ']': '[',
-            '}': '{'
-        }
-        for ch in s:
-            # the character is an open bracket
-            if ch in pairs.values():
-                # add to the stack
-                stack.append(ch)
-            # the character is a closing bracket
-            elif ch in pairs.values():
-                # if the stack is null the last element (top of stack) doesn't match the closing
-                if not stack and stack[-1] == pairs[ch]:
-                    return False # meaning there is a mismatch or missing opening bracket
 
-                # if the bracket matches, remove the top element of the stack (the opening bracket)
-                stack.pop()
-            else:
-                # if not bracket case
-                return False
-        # if every stack matched, the stack should be empty and return true, otherwise return false
+        for char in s:
+            # if the character is in the values mapping (meaning it's an open parenthesis)
+            if char in mapping.values():
+                # add to the stack
+                stack.append(char)
+            # if the character is a key (meaning it's a closed parenthesis)
+            elif char in mapping:
+                # if the stack is empty or the character doesn't match the corresponding pair at the top of the stack
+                if not stack or mapping[char] != stack.pop():
+                    # return false
+                    return False
+        # return true if the stack is empty
         return not stack
