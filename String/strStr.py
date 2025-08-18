@@ -22,5 +22,4 @@ class Solution:
                 # if there is a match found, return the index
                 if index != -1:
                     return index
-
         return index
