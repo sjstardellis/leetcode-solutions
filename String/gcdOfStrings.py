@@ -10,7 +10,7 @@ class Solution:
                 a = b
                 b = temp % a
                 # could also do a, b = b, a % b
-                return a
+            return a
 
         # common divisor check, if there is not a pattern then return empty string
         if str1 + str2 != str2 + str1:
