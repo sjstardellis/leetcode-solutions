@@ -27,6 +27,7 @@ class Solution:
             # no left child, return right
             if not root.left:
                 return root.right
+
             # two children case:
             # store the right subtree in temp
             temp = root.right
