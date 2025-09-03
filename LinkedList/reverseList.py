@@ -23,3 +23,4 @@ class Solution:
             curr = temp
         # prev becomes the new head since the curr pointer will be None
         return prev
+
