@@ -9,6 +9,8 @@ class TreeNode:
         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
+            return None
         # stack starts with root
         stack = [root]
         # while stack is not empty
